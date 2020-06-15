@@ -1,3 +1,6 @@
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.awt.*;
 
 public class FroggerLevelEngine
@@ -8,6 +11,7 @@ public class FroggerLevelEngine
 	private TrafficPattern[] traffic;
 	private Frog frog;
 	private FroggerState state = FroggerState.MOVING;
+	private static final Logger logger = LogManager.getLogger(FroggerLevelEngine.class);
 
 	public FroggerLevelEngine(int[] speeds, String[] patterns)
 	{
@@ -17,6 +21,7 @@ public class FroggerLevelEngine
 			traffic[i] = new TrafficPattern(speeds[i], patterns[i], (i%2==0), getBounds(), (i+1)*(Car.HEIGHT+2));
 		}
 		frog = new Frog(WIDTH/2, HEIGHT-Frog.RADIUS, getBounds());
+		logger.fatal("ENGINE STARTED");
 	}
 
 	public FroggerLevelEngine(FroggerLevel level)
@@ -55,24 +60,32 @@ public class FroggerLevelEngine
 	{
 		if(state == FroggerState.MOVING)
 			frog = frog.moveUp();
+		logger.debug("move up");
+
 	}
 
 	public void moveDown()
 	{
 		if(state == FroggerState.MOVING)
 			frog = frog.moveDown();
+		logger.debug("move down");
+
 	}
 
 	public void moveLeft()
 	{
 		if(state == FroggerState.MOVING)
 			frog = frog.moveLeft();
+		logger.debug("move left");
+
 	}
 
 	public void moveRight()
 	{
 		if(state == FroggerState.MOVING)
 			frog = frog.moveRight();
+		logger.debug("move right");
+
 	}
 
 	public void draw(Graphics g)
@@ -83,8 +96,8 @@ public class FroggerLevelEngine
 		{
 			traffic[i].draw(g);
 		}
-                
-          
+		logger.debug("draw");
+
 
 //		if(state == FroggerState.HIT)
 //		{

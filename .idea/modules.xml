@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Blackjack/Blackjack.iml" filepath="$PROJECT_DIR$/Blackjack/Blackjack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Catch/Catch.iml" filepath="$PROJECT_DIR$/Catch/Catch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Comet/Comet.iml" filepath="$PROJECT_DIR$/Comet/Comet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Craps/Craps.iml" filepath="$PROJECT_DIR$/Craps/Craps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FallDown/FallDown.iml" filepath="$PROJECT_DIR$/FallDown/FallDown.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Frogger/Frogger.iml" filepath="$PROJECT_DIR$/Frogger/Frogger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java-Games.iml" filepath="$PROJECT_DIR$/.idea/Java-Games.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MathHero/MathHero.iml" filepath="$PROJECT_DIR$/MathHero/MathHero.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Pong/Pong.iml" filepath="$PROJECT_DIR$/Pong/Pong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PongServer/PongServer.iml" filepath="$PROJECT_DIR$/PongServer/PongServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tetris/Tetris.iml" filepath="$PROJECT_DIR$/Tetris/Tetris.iml" />
+    </modules>
+  </component>
+</project>

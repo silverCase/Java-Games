@@ -1,3 +1,6 @@
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.awt.*;
 
 public class CrapsEngine
@@ -5,9 +8,11 @@ public class CrapsEngine
 	private CrapsGame game;
 	private int money = 100;
 	private int bet = 10;
+	public static final Logger logger = LogManager.getLogger(CrapsEngine.class);
 
 	public CrapsEngine()
 	{
+		logger.fatal("STARTED ENGINE");
 		game = new CrapsGame();
 	}
 
@@ -18,6 +23,9 @@ public class CrapsEngine
 
 		if(bet > money)
 			bet = money;
+
+		logger.info(bet);
+
 	}
 
 	public void downBet()
@@ -27,6 +35,8 @@ public class CrapsEngine
 
 		if(bet < 0)
 			bet = 0;
+
+		logger.info(bet);
 	}
 
 	public void roll()
@@ -66,5 +76,7 @@ public class CrapsEngine
 		g.setColor(Color.BLACK);
 		g.drawString("Money: " + money, 10, game.getHeight()+20);
 		g.drawString("Bet: " + bet, 10, game.getHeight()+32);
+		logger.debug("draw");
+
 	}
 }

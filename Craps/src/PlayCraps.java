@@ -1,3 +1,5 @@
+import org.apache.log4j.BasicConfigurator;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,6 +16,7 @@ public class PlayCraps extends JFrame
 
 	public static void main(String[] args)
 	{
+		BasicConfigurator.configure();
 		new PlayCraps();
 	}
 }

@@ -1,3 +1,6 @@
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.awt.*;
 import java.util.*;
 
@@ -16,10 +19,13 @@ public class FallDownEngine
 	private int speedDelay = 0;
 	private int points = -1;
 
+	private static final Logger logger = LogManager.getLogger(FallDownEngine.class);
+
 	public FallDownEngine()
 	{
 		ball = new Ball(WIDTH/2, HEIGHT/2);
 		createBrickLayer();
+		logger.fatal("New layer");
 	}
 
 	public void createBrickLayer()
@@ -30,6 +36,7 @@ public class FallDownEngine
 			if(i != hole)
 			{
 				bricks.add(new Brick(i*Brick.WIDTH+Brick.WIDTH/2, HEIGHT+Brick.HEIGHT));
+				logger.debug("New brick");
 			}
 		}
 		points++;
@@ -43,6 +50,7 @@ public class FallDownEngine
 			{
 				bricks.remove(i);
 				i--;
+				logger.debug("brick removed");
 			}
 		}
 	}
@@ -53,6 +61,7 @@ public class FallDownEngine
 		{
 			bricks.add(i, bricks.get(i).move(0,-brickSpeed));
 			bricks.remove(i+1);
+			logger.debug("brick moved");
 		}
 	}
 
@@ -61,24 +70,32 @@ public class FallDownEngine
 		for(int i = 0; i < bricks.size(); i++)
 		{
 			ball = bricks.get(i).affect(ball);
+			logger.debug("ball affected");
 		}
 		ball = ball.accelerate(0, GRAVITY);
-		if(ball.getLocation().getY() > HEIGHT)
-			ball = ball.setPosition((int)ball.getLocation().getX(), HEIGHT);
+		if(ball.getLocation().getY() > HEIGHT) {
+			logger.debug("ball located and moved");
+			ball = ball.setPosition((int) ball.getLocation().getX(), HEIGHT);
+		}
 	}
 
 	public void moveLeft()
 	{
 		ball = ball.moveLeft();
-		while(ball.getLocation().getX() < 0)
+		while(ball.getLocation().getX() < 0){
+			logger.debug("ball moved right");
 			ball = ball.moveRight();
+
+		}
 	}
 
 	public void moveRight()
 	{
 		ball = ball.moveRight();
-		while(ball.getLocation().getX() > WIDTH)
+		while(ball.getLocation().getX() > WIDTH) {
 			ball = ball.moveLeft();
+			logger.debug("ball moved right");
+		}
 	}
 
 	public void update()
@@ -108,6 +125,7 @@ public class FallDownEngine
 	{
 		if(ball.getLocation().getY() < -Ball.RADIUS)
 		{
+			logger.debug("draw");
 			g.setColor(Color.BLUE);
 			g.drawString("You Lose", WIDTH/2-27, HEIGHT/2);
 		}

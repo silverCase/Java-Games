@@ -1,5 +1,6 @@
 import java.awt.*;
-
+import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
 public class Frog
 {
 	public static final int RADIUS = 5;
@@ -8,17 +9,23 @@ public class Frog
 
 	private int x,y;
 	private Rectangle bounds;
+	private static final Logger logger = LogManager.getLogger(Frog.class);
+
 
 	public Frog(int x,int y, Rectangle bounds)
 	{
 		this.x = x;
 		this.y = y;
 		this.bounds = bounds;
+		logger.fatal("NEW FROG");
+
 	}
 
 	public Frog move(int dx, int dy)
 	{
 		Frog newFrog = new Frog(x+dx, y+dy, bounds);
+		logger.fatal("FROG MOVED");
+
 		if(bounds.contains(newFrog.getBounds()))
 			return newFrog;
 		else
@@ -60,10 +67,12 @@ public class Frog
 		g.setColor(COLOR);
 		g.fillOval(x-RADIUS, y-RADIUS, RADIUS*2, RADIUS*2);
 	}
-        public void drawLevel(Graphics g,int levelNumber)
-        {
-            String level="LEVEL "+levelNumber;
-            g.setColor(COLOR);
-            g.drawString(level,300,400);
-        }
+
+	public void drawLevel(Graphics g,int levelNumber)
+	{
+		logger.fatal("LVL DRAWN");
+		String level="LEVEL "+levelNumber;
+		g.setColor(COLOR);
+		g.drawString(level,300,400);
+	}
 }

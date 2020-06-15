@@ -3,6 +3,8 @@ import frogger.Cronometro;
 import javax.swing.*;
 import java.awt.*;
 
+import org.apache.log4j.BasicConfigurator;
+
 public class PlayFrogger extends JFrame {
 
     public static JLabel lab1;
@@ -40,6 +42,7 @@ public class PlayFrogger extends JFrame {
     }
 
     public static void main(String[] args) {
+        BasicConfigurator.configure();
         new PlayFrogger();
     }
      

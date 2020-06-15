@@ -189,6 +189,7 @@ public class Play extends ListeningGameComponent
 
 	public static void main(String[] args)
 	{
+
 		JOptionPane.showMessageDialog((new Play()).makeTestWindow(), "Press ENTER to get started or H for more help!");
 	}
 }

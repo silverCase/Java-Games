@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.util.*;
+import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
 
 public class TrafficPattern
 {

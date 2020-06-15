@@ -1,3 +1,6 @@
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -5,6 +8,7 @@ import java.awt.event.*;
 public class CrapsComponent extends JComponent implements KeyListener, Runnable
 {
 	private CrapsEngine engine;
+	public static final Logger logger = LogManager.getLogger(CrapsComponent.class);
 
 	public CrapsComponent()
 	{
@@ -15,6 +19,8 @@ public class CrapsComponent extends JComponent implements KeyListener, Runnable
  		addKeyListener(this);
  		Thread run = new Thread(this);
  		run.start();
+ 		logger.fatal("STARTED");
+ 		logger.info(engine);
 	}
 
 	public void run()
@@ -30,6 +36,7 @@ public class CrapsComponent extends JComponent implements KeyListener, Runnable
 			}
 			requestFocus();
 			repaint();
+			logger.debug("painted");
 		}
 	}
 

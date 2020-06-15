@@ -4,6 +4,9 @@ import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.BasicConfigurator;
 
 public class GravitySoccer extends ListeningGameComponent
 {
@@ -54,6 +57,7 @@ public class GravitySoccer extends ListeningGameComponent
 
 	public static void main(String[] args)
 	{
+		org.apache.log4j.BasicConfigurator.configure();
 		JOptionPane.showMessageDialog((new GravitySoccer()).makeTestWindow(), "Press H for help.");
 	}
 }
