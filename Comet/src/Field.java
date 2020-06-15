@@ -1,13 +1,11 @@
 import java.awt.*;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+import java.util.logging.Logger;
 public class Field
 {
 	Comet player1;
 	Comet player2;
 	Comet ball;
-	public static final Logger logger = LogManager.getLogger(Field.class);
+	public static final Logger logger = Logger.getLogger(Field.class.getName());
 
 	public Field()
 	{
@@ -17,7 +15,7 @@ public class Field
 		player2.color = Color.BLUE;
 		ball = new Comet(5, 320, 240);
 		ball.color= Color.BLACK;
-		logger.fatal("NEW FIELD");
+		logger.severe("NEW FIELD");
 	}
 
 	public void draw(Graphics g)
@@ -140,7 +138,7 @@ public class Field
 		player2.color = Color.BLUE;
 		ball = new Comet(5, 320, 240);
 		ball.color= Color.BLACK;
-		logger.fatal("NEW SCORE");
+		logger.severe("NEW SCORE");
 
 	}
 
