@@ -1,6 +1,5 @@
 import java.awt.*;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger;
 
 public class Car extends Rectangle
 {
@@ -10,7 +9,7 @@ public class Car extends Rectangle
 	private int speed;
 	private Color color;
 
-	public static final Logger logger = LogManager.getLogger(Car.class);
+	public static final Logger logger = Logger.getLogger(Car.class.getName());
 
 	public Car(int x, int y, int speed, Color color)
 	{
@@ -21,13 +20,13 @@ public class Car extends Rectangle
 
 	public Car moveLeft()
 	{
-		logger.debug("new car left");
+		logger.info("new car left");
 		return new Car(x-speed,y,speed,color);
 	}
 
 	public Car moveRight()
 	{
-		logger.debug("new car right");
+		logger.info("new car right");
 		return new Car(x+speed,y,speed,color);
 	}
 
@@ -40,7 +39,7 @@ public class Car extends Rectangle
 	{
 		if(color != null)
 		{
-			logger.debug("drawn from null");
+			logger.info("drawn from null");
 			g.setColor(color);
 			g.fillRect(x,y,WIDTH,HEIGHT);
 		}

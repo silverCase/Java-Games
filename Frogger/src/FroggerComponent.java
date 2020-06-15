@@ -1,12 +1,11 @@
 import java.awt.*;
+import java.util.function.Supplier;
 import java.util.prefs.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.*;
 import java.util.logging.Level;
-//import java.util.logging.Logger;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger;
 
 public class FroggerComponent extends JComponent implements KeyListener, Runnable {
 
@@ -20,7 +19,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
     private int highscore = readPreference();
     private static final String HIGHSCORE = "highscore1";
 
-    private static final Logger logger = LogManager.getLogger(Frog.class);
+    private static final Logger logger = Logger.getLogger(FroggerComponent.class.getName());
 
     //creo playfrogger
     //PlayFrogger pf = new PlayFrogger();
@@ -33,7 +32,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
         addKeyListener(this);
         Thread run = new Thread(this);
         run.start();
-        logger.debug("started");
+        logger.info("started");
     }
 
     public void levelInit() {
@@ -42,25 +41,25 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
         levels.add(new FroggerLevel(
                 new int[]{1, 2, 1},
                 new String[]{"  YYYY         L  ", " BB      RR     ", "    RR    MM     "}));
-        logger.debug("lvl added");
+        logger.info("lvl added");
 
         levels.add(new FroggerLevel(
                 new int[]{1, 5, 1},
                 new String[]{"LLL       GGG      RRR", "RRR          MMM",
                     "RR    MM   LL    RR  RRR"}));
-        logger.debug("lvl added");
+        logger.info("lvl added");
 
         levels.add(new FroggerLevel(
                 new int[]{2, 1, 2, 1, 2},
                 new String[]{"RR         L  ", "BB  CCCCCC   RR     ", "    RR    MM     ",
                     "MMM     MMM     ", "RR      L     "}));
-        logger.debug("lvl added");
+        logger.info("lvl added");
 
         levels.add(new FroggerLevel(
                 new int[]{1, 2, 1, 3, 1},
                 new String[]{"LLL       MM      RRR    ", "RRR    GGGG    LL   MMM   ",
                     "RR    MM   LL    RR  RRR  ", "  LLLL      BBBB      MMM  ", "  MMMMM        LLLL     MMMM  "}));
-        logger.debug("lvl added");
+        logger.info("lvl added");
 
         levels.add(new FroggerLevel(
                 new int[]{1, 1, 1, 1, 1, 1, 1},
@@ -68,34 +67,34 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
                     "MMM   MMM     MMM    ", "RR     RR     RR     ",
                     "Y   Y   B   B   B   B   ", "MMM   MMM     MMM    L ",
                     "   BBB    BBB L    BBB"}));
-        logger.debug("lvl added");
+        logger.info("lvl added");
 
         levels.add(new FroggerLevel(
                 new int[]{1, 1, 2, 2, 3, 2, 1},
                 new String[]{"RR     LL     B   ", "LLL      BB   R    ",
                     "RRR      LL        ", "MMM        MM    ", "L          L      ",
                     "RR     L      M     ", "RRR    BL       "}));
-        logger.debug("lvl added");
+        logger.info("lvl added");
 
         levels.add(new FroggerLevel(
                 new int[]{1, 2, 3, 4, 5},
                 new String[]{"BB  L    RRR    M", "RR B  MMM     L    ",
                     "MM     LL     BB     ", "M      L      BB      ",
                     "LL            "}));
-        logger.debug("lvl added");
+        logger.info("lvl added");
 
         levels.add(new FroggerLevel(
                 new int[]{2, 3, 1, 2, 3, 2},
                 new String[]{"LLL       LLL       ", "   RRRR     RRRR     ",
                     "RR  BB     LL  MM   ", "LLL    BB     RR ", "MMMMM     RBRBR    LLLL    ", "    BBB   MMMM      LLLLL"}));
-        logger.debug("lvl added");
+        logger.info("lvl added");
 
         levels.add(new FroggerLevel(
                 new int[]{1, 3, 4, 3, 1, 2},
                 new String[]{"MMM   LL     RR      ", "BBB       LL    RR    ",
                     "BB        LL         ", "BBB       MM    MM   ", "MMM  LL  B    R  L B "
                 }));
-        logger.debug("lvl added");
+        logger.info("lvl added");
 
     }
 
@@ -110,7 +109,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
             try {
                 update();
             } catch (InterruptedException ex) {
-                Logger.getLogger(FroggerComponent.class.getName()).log(null, Level.SEVERE, ex);
+                Logger.getLogger(FroggerComponent.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             repaint();
@@ -120,25 +119,25 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
     public void paint(Graphics g) {
         synchronized (g) {
             engine.draw(g);
-            // logger.debug("graphics done");
+            // loggerinfog();("graphics done");
         }
     }
 
     public void update() throws InterruptedException {
         if (upPressed) {
-            logger.debug("up pressed");
+            logger.info("up pressed");
             engine.moveUp();
         }
         if (downPressed) {
-            logger.debug("down pressed");
+            logger.info("down pressed");
             engine.moveDown();
         }
         if (leftPressed) {
-            logger.debug("left pressed");
+            logger.info("left pressed");
             engine.moveLeft();
         }
         if (rightPressed) {
-            logger.debug("right pressed");
+            logger.info("right pressed");
             engine.moveRight();
         }
 
@@ -157,22 +156,22 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
             level=0;
             life=5;
             engine = new FroggerLevelEngine(levels.get(level));
-            logger.debug("game start over");
+            logger.info("game start over");
             PlayFrogger.c.inizio();
         }
         if (engine.getState() == FroggerState.WON) {
             level++;
             score += 300;
-            logger.debug("new level");
+            logger.info("new level");
             if (level >= levels.size()) {
                 JOptionPane.showMessageDialog(this, "You have beaten this game.");
-                logger.debug("game over");
+                logger.info("game over");
                 System.exit(0);
             }
             engine = new FroggerLevelEngine(levels.get(level));
             if (life>=5){
                 String hearts="";
-                logger.debug("revoked");
+                logger.info("revoked");
                 for(int i=0;i<life;++i)
                 {
                     hearts=hearts+"♥";
@@ -181,7 +180,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
             } else{
                 ++life;
                 String hearts="";
-                logger.debug("replenished");
+                logger.info("replenished");
                 for(int i=0;i<life;++i)
                 {
                     hearts=hearts+"♥";
@@ -193,7 +192,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
         if (engine.getState() == FroggerState.HIT) {
             engine = new FroggerLevelEngine(levels.get(level));
             --life;
-            logger.debug(life);
+            logger.info(String.valueOf(life));
             System.out.println(life);
             String hearts="";
             for(int i=0;i<life;++i)
@@ -232,7 +231,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
             PlayFrogger.lab1.setForeground(Color.RED);
             PlayFrogger.lab3.setLocation((369 - PlayFrogger.lab3.getWidth()), 56);
             PlayFrogger.lab3.setForeground(Color.BLUE);
-            logger.debug("lvl1");
+            logger.info("lvl1");
 
 
         } else if (level == 2) {
@@ -245,7 +244,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
             PlayFrogger.lab1.setForeground(Color.GREEN);
             PlayFrogger.lab3.setLocation((369 - PlayFrogger.lab3.getWidth()), 56);
             PlayFrogger.lab3.setForeground(Color.BLUE);
-            logger.debug("lvl2");
+            logger.info("lvl2");
 
         } else if (level == 3) {
             checkHighscore();
@@ -257,7 +256,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
             PlayFrogger.lab1.setForeground(Color.MAGENTA);
             PlayFrogger.lab3.setLocation((369 - PlayFrogger.lab3.getWidth()), 56);
             PlayFrogger.lab3.setForeground(Color.BLUE);
-            logger.debug("lvl3");
+            logger.info("lvl3");
 
         } else if (level == 4) {
             checkHighscore();
@@ -269,7 +268,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
             PlayFrogger.lab1.setForeground(Color.PINK);
             PlayFrogger.lab3.setLocation((369 - PlayFrogger.lab3.getWidth()), 56);
             PlayFrogger.lab3.setForeground(Color.BLUE);
-            logger.debug("lvl4");
+            logger.info("lvl4");
 
         } else if (level == 5) {
             checkHighscore();
@@ -281,7 +280,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
             PlayFrogger.lab1.setForeground(Color.GRAY);
             PlayFrogger.lab3.setLocation((369 - PlayFrogger.lab3.getWidth()), 56);
             PlayFrogger.lab3.setForeground(Color.BLUE);
-            logger.debug("lvl5");
+            logger.info("lvl5");
 
         }else if (level == 6) {
             checkHighscore();
@@ -293,7 +292,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
             PlayFrogger.lab1.setForeground(Color.GRAY);
             PlayFrogger.lab3.setLocation((369 - PlayFrogger.lab3.getWidth()), 56);
             PlayFrogger.lab3.setForeground(Color.BLUE);
-            logger.debug("lvl6");
+            logger.info("lvl6");
 
         }else if (level == 7) {
             checkHighscore();
@@ -305,7 +304,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
             PlayFrogger.lab1.setForeground(Color.GRAY);
             PlayFrogger.lab3.setLocation((369 - PlayFrogger.lab3.getWidth()), 56);
             PlayFrogger.lab3.setForeground(Color.BLUE);
-            logger.debug("lvl7");
+            logger.info("lvl7");
 
         }else if (level == 8) {
             checkHighscore();
@@ -317,7 +316,7 @@ public class FroggerComponent extends JComponent implements KeyListener, Runnabl
             PlayFrogger.lab1.setForeground(Color.GRAY);
             PlayFrogger.lab3.setLocation((369 - PlayFrogger.lab3.getWidth()), 56);
             PlayFrogger.lab3.setForeground(Color.BLUE);
-            logger.debug("lvl8");
+            logger.info("lvl8");
 
         }
           

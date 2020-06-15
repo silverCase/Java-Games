@@ -6,8 +6,7 @@ package frogger;
  * and open the template in the editor.
  */
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -27,7 +26,7 @@ public class Cronometro {
     private JFrame form;  
     private JLabel label;  
     private JPanel panelButtons;
-    public static final Logger logger = LogManager.getLogger(Cronometro.class);
+    public static final Logger logger = Logger.getLogger(Cronometro.class.getName());
 
     private Timer timer;  
     private long startTime; 
@@ -67,14 +66,14 @@ public class Cronometro {
     
         startTime = System.currentTimeMillis();  
         timer.start();
-        logger.debug("timer start");
+        logger.info("timer start");
 
     }
     
     public void stop()
     {
             timer.stop();
-            logger.debug("timer stop");
+            logger.info("timer stop");
 
     }
     
