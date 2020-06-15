@@ -1,5 +1,4 @@
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger;
 
 import java.awt.*;
 import java.util.*;
@@ -19,13 +18,13 @@ public class FallDownEngine
 	private int speedDelay = 0;
 	private int points = -1;
 
-	private static final Logger logger = LogManager.getLogger(FallDownEngine.class);
+	private static final Logger logger = Logger.getLogger(FallDownEngine.class.getName());
 
 	public FallDownEngine()
 	{
 		ball = new Ball(WIDTH/2, HEIGHT/2);
 		createBrickLayer();
-		logger.fatal("New layer");
+		logger.severe("New layer");
 	}
 
 	public void createBrickLayer()
@@ -36,7 +35,7 @@ public class FallDownEngine
 			if(i != hole)
 			{
 				bricks.add(new Brick(i*Brick.WIDTH+Brick.WIDTH/2, HEIGHT+Brick.HEIGHT));
-				logger.debug("New brick");
+				logger.info("New brick");
 			}
 		}
 		points++;
@@ -50,7 +49,7 @@ public class FallDownEngine
 			{
 				bricks.remove(i);
 				i--;
-				logger.debug("brick removed");
+				logger.info("brick removed");
 			}
 		}
 	}
@@ -61,7 +60,7 @@ public class FallDownEngine
 		{
 			bricks.add(i, bricks.get(i).move(0,-brickSpeed));
 			bricks.remove(i+1);
-			logger.debug("brick moved");
+			logger.info("brick moved");
 		}
 	}
 
@@ -70,11 +69,11 @@ public class FallDownEngine
 		for(int i = 0; i < bricks.size(); i++)
 		{
 			ball = bricks.get(i).affect(ball);
-			logger.debug("ball affected");
+			logger.info("ball affected");
 		}
 		ball = ball.accelerate(0, GRAVITY);
 		if(ball.getLocation().getY() > HEIGHT) {
-			logger.debug("ball located and moved");
+			logger.info("ball located and moved");
 			ball = ball.setPosition((int) ball.getLocation().getX(), HEIGHT);
 		}
 	}
@@ -83,7 +82,7 @@ public class FallDownEngine
 	{
 		ball = ball.moveLeft();
 		while(ball.getLocation().getX() < 0){
-			logger.debug("ball moved right");
+			logger.info("ball moved right");
 			ball = ball.moveRight();
 
 		}
@@ -94,7 +93,7 @@ public class FallDownEngine
 		ball = ball.moveRight();
 		while(ball.getLocation().getX() > WIDTH) {
 			ball = ball.moveLeft();
-			logger.debug("ball moved right");
+			logger.info("ball moved right");
 		}
 	}
 
@@ -125,7 +124,7 @@ public class FallDownEngine
 	{
 		if(ball.getLocation().getY() < -Ball.RADIUS)
 		{
-			logger.debug("draw");
+			logger.info("draw");
 			g.setColor(Color.BLUE);
 			g.drawString("You Lose", WIDTH/2-27, HEIGHT/2);
 		}

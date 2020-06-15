@@ -1,5 +1,4 @@
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger;
 
 import java.awt.*;
 import javax.swing.*;
@@ -9,7 +8,7 @@ public class FallDownComponent extends JComponent implements KeyListener, Runnab
 {
 	private FallDownEngine engine;
 	private boolean leftPressed, rightPressed;
-	private static final Logger logger = LogManager.getLogger(FallDownComponent.class);
+	private static final Logger logger = Logger.getLogger(FallDownComponent.class.getName());
 
 	public FallDownComponent()
 	{
@@ -20,7 +19,7 @@ public class FallDownComponent extends JComponent implements KeyListener, Runnab
  		addKeyListener(this);
  		Thread run = new Thread(this);
  		run.start();
-		logger.fatal("Started Fall down engine");
+		logger.severe("Started Fall down engine");
 	}
 
 	public void run()
@@ -33,12 +32,12 @@ public class FallDownComponent extends JComponent implements KeyListener, Runnab
 			}
 			catch(Exception ex)
 			{
-				logger.fatal(ex);
+				logger.severe(String.valueOf(ex));
 			}
 			requestFocus();
 			update();
 			repaint();
-			logger.debug("frame");
+			logger.info("frame");
 		}
 	}
 
@@ -64,12 +63,12 @@ public class FallDownComponent extends JComponent implements KeyListener, Runnab
 		if(ke.getKeyCode() == KeyEvent.VK_LEFT)
 		{
 			leftPressed = true;
-			logger.debug("left pressed");
+			logger.info("left pressed");
 		}
 		else if(ke.getKeyCode() == KeyEvent.VK_RIGHT)
 		{
 			rightPressed = true;
-			logger.debug("right pressed");
+			logger.info("right pressed");
 		}
 	}
 

@@ -1,6 +1,4 @@
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+import java.util.logging.Logger;
 import java.awt.*;
 
 public class Brick
@@ -9,7 +7,7 @@ public class Brick
 	public static final int HEIGHT = 25;
 
 	private int x, y;
-	private static final Logger logger = LogManager.getLogger(Brick.class);
+	private static final Logger logger = Logger.getLogger(Brick.class.getName());
 
 	public Brick(int x, int y)
 	{
@@ -37,7 +35,7 @@ public class Brick
 		Ball ret = b;
 		while(intersects(ret))
 			ret = ret.move(0, -1);
-			logger.trace("intersection");
+			logger.fine("intersection");
 		return ret;
 	}
 
@@ -48,7 +46,7 @@ public class Brick
 
 	public void draw(Graphics g)
 	{
-		logger.debug("graphix done");
+		logger.info("graphix done");
 		g.setColor(Color.RED);
 		g.fillRect(x-WIDTH/2, y-HEIGHT/2, WIDTH-1, HEIGHT-1);
 	}

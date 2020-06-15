@@ -1,12 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.BasicConfigurator;
+import java.util.logging.Logger;
 
 public class PlayFallDown extends JFrame
 {
-	private static final Logger logger = LogManager.getLogger(PlayFallDown.class);
+	private static final Logger logger = Logger.getLogger(PlayFallDown.class.getName());
 
 	public PlayFallDown()
 	{
@@ -19,8 +17,7 @@ public class PlayFallDown extends JFrame
 
 	public static void main(String[] args)
 	{
-		org.apache.log4j.BasicConfigurator.configure();
 		new PlayFallDown();
-		logger.fatal("GAME STARTED");
+		logger.severe("GAME STARTED");
 	}
 }
