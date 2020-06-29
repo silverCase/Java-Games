@@ -16,10 +16,10 @@ public class Paddle
 		y = ny;
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		g.setColor(Color.BLACK);
-		g.fillRect(x-WIDTH/2, y-HEIGHT/2, WIDTH, HEIGHT);
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect(x-WIDTH/2, y-HEIGHT/2, WIDTH, HEIGHT);
 	}
 
 	public Rectangle getBounds()

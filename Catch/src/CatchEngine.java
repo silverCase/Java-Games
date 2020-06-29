@@ -104,19 +104,19 @@ public class CatchEngine
 		}
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		g.setColor(Color.BLACK);
-		g.drawString("Points: " + points, 10, 20);
-		g.drawString("Lives: " + lives, 10, 30);
+		graphics.setColor(Color.BLACK);
+		graphics.drawString("Points: " + points, 10, 20);
+		graphics.drawString("Lives: " + lives, 10, 30);
 		if(lives <= 0)
 		{
-			g.setColor(Color.RED);
-			g.drawString("You Lose", WIDTH/2-20, HEIGHT/2);
+			graphics.setColor(Color.RED);
+			graphics.drawString("You Lose", WIDTH/2-20, HEIGHT/2);
 		}
 		for(int i = 0; i < balls.size(); i++)
-			balls.get(i).draw(g);
+			balls.get(i).draw(graphics);
 
-		bucket.draw(g);
+		bucket.draw(graphics);
 	}
 }

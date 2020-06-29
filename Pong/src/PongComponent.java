@@ -37,11 +37,11 @@ public class PongComponent extends JComponent implements KeyListener, Runnable
 		}
 	}
 
-	public void paint(Graphics g)
+	public void paint(Graphics graphics)
 	{
-		synchronized(g)
+		synchronized(graphics)
 		{
-			environment.draw(g);
+			environment.draw(graphics);
 		}
 	}
 

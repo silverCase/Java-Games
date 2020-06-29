@@ -36,9 +36,9 @@ public class CatchComponent extends JComponent implements KeyListener, Runnable
 		}
 	}
 
-	public void paint(Graphics g)
+	public void paint(Graphics graphics)
 	{
-        engine.draw(g);
+        engine.draw(graphics);
 	}
 
 	public void updateState()

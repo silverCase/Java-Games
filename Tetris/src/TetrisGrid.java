@@ -18,7 +18,7 @@ public class TetrisGrid extends BlockGrid
 			setWorkingBlock(TetrisBlock.getRandomBlock().setLocation(getWidth()/2, 0));
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		clear();
 		if(workingBlock != null)
@@ -27,15 +27,15 @@ public class TetrisGrid extends BlockGrid
 		{
 			lockedBlocks.get(i).draw(this);
 		}
-		if(g != null)
-			super.draw(g);
+		if(graphics != null)
+			super.draw(graphics);
 
-		Graphics2D g2 = (Graphics2D)g;
-		g2.setColor(Color.BLACK);
-		g2.drawString("Points: " + points, 5, 12+5);
+		Graphics2D graphics2D = (Graphics2D)graphics;
+		graphics2D.setColor(Color.BLACK);
+		graphics2D.drawString("Points: " + points, 5, 12+5);
 		if(isFilled())
 		{
-			g2.drawString("You Lose", getGraphicsWidth()/2-20, getGraphicsHeight()/2-6);
+			graphics2D.drawString("You Lose", getGraphicsWidth()/2-20, getGraphicsHeight()/2-6);
 		}
 	}
 

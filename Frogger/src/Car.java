@@ -35,13 +35,13 @@ public class Car extends Rectangle
 		return color == null;
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		if(color != null)
 		{
 			logger.info("drawn from null");
-			g.setColor(color);
-			g.fillRect(x,y,WIDTH,HEIGHT);
+			graphics.setColor(color);
+			graphics.fillRect(x,y,WIDTH,HEIGHT);
 		}
 	}
 }

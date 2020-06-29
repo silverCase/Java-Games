@@ -89,15 +89,15 @@ public abstract class Enemy
 	public abstract String getProblem();
 	public abstract int getSolution();
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		g.setColor(color);
-		g.drawString(getProblem(), x()-radius, y()-radius);
-		g.fillOval(x()-radius, y()-radius, radius*2, radius*2);
+		graphics.setColor(color);
+		graphics.drawString(getProblem(), x()-radius, y()-radius);
+		graphics.fillOval(x()-radius, y()-radius, radius*2, radius*2);
 		if(dying1)
 		{
-			g.setColor(Color.BLACK);
-			g.drawLine(arrowX1(),arrowY1(),arrowX2(),arrowY2());
+			graphics.setColor(Color.BLACK);
+			graphics.drawLine(arrowX1(),arrowY1(),arrowX2(),arrowY2());
 		}
 		if(dying2)
 		{

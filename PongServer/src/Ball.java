@@ -17,9 +17,9 @@ public class Ball implements Serializable
 			xVec = -1;
 	}
 
-	public Ball(String s)
+	public Ball(String str)
 	{
-		Scanner sc = new Scanner(s);
+		Scanner sc = new Scanner(str);
 		x = sc.nextInt();
 		y = sc.nextInt();
 	}
@@ -76,10 +76,10 @@ public class Ball implements Serializable
 		return new Rectangle((int)(x-5+.5), (int)(y-5+.5), 10, 10);
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		g.setColor(Color.BLACK);
-		g.fillOval((int)(x-5+.5),(int)(y-5+.5), 10, 10);
+		graphics.setColor(Color.BLACK);
+		graphics.fillOval((int)(x-5+.5),(int)(y-5+.5), 10, 10);
 	}
 
 	public String toString()

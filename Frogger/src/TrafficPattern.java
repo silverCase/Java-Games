@@ -126,24 +126,24 @@ public class TrafficPattern
 		}
 	}
 
-	public boolean intersects(Frog f)
+	public boolean intersects(Frog frog)
 	{
 		for(int i = 0; i < cars.size(); i++)
 		{
-			if((cars.get(i) != null) && !cars.get(i).empty() && cars.get(i).intersects(f.getBounds()))
+			if((cars.get(i) != null) && !cars.get(i).empty() && cars.get(i).intersects(frog.getBounds()))
 				return true;
 		}
 		return false;
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		//g.setColor(Color.DARK_GRAY);
-		//g.fillRect(0,y,(int)bounds.getWidth(), Car.HEIGHT);
+		//graphics.setColor(Color.DARK_GRAY);
+		//graphics.fillRect(0,y,(int)bounds.getWidth(), Car.HEIGHT);
 		for(int i = 0; i < cars.size(); i++)
 		{
 			if(cars.get(i) != null)
-				cars.get(i).draw(g);
+				cars.get(i).draw(graphics);
 		}
 	}
 

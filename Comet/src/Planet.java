@@ -29,10 +29,10 @@ public class Planet implements Serializable
 		return (4.0/3.0)*radius*radius*radius*Math.PI;
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		logger.severe("draw planet");
-		g.setColor(Color.BLACK);
-		g.fillOval((int)(x-radius+.5), (int)(y-radius+.5), (int)(radius*2+.5), (int)(radius*2+.5));
+		graphics.setColor(Color.BLACK);
+		graphics.fillOval((int)(x-radius+.5), (int)(y-radius+.5), (int)(radius*2+.5), (int)(radius*2+.5));
 	}
 }

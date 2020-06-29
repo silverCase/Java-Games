@@ -59,9 +59,9 @@ public class Ball
 		move();
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		g.setColor(color);
-		g.fillOval(x-RADIUS, y-RADIUS, RADIUS*2, RADIUS*2);
+		graphics.setColor(color);
+		graphics.fillOval(x-RADIUS, y-RADIUS, RADIUS*2, RADIUS*2);
 	}
 }

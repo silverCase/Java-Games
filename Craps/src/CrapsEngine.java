@@ -68,12 +68,12 @@ public class CrapsEngine
 		return game.getHeight()+40;
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		game.draw(g);
-		g.setColor(Color.BLACK);
-		g.drawString("Money: " + money, 10, game.getHeight()+20);
-		g.drawString("Bet: " + bet, 10, game.getHeight()+32);
+		game.draw(graphics);
+		graphics.setColor(Color.BLACK);
+		graphics.drawString("Money: " + money, 10, game.getHeight()+20);
+		graphics.drawString("Bet: " + bet, 10, game.getHeight()+32);
 		logger.info("draw");
 
 	}

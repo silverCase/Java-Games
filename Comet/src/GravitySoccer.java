@@ -14,10 +14,10 @@ public class GravitySoccer extends ListeningGameComponent
 		super(640,480);
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		if(field != null)
-			field.draw(g);
+			field.draw(graphics);
 	}
 
 	public void update()

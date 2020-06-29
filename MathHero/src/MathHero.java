@@ -19,11 +19,11 @@ public class MathHero extends ListeningGameComponent
 		world.update();
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		world.draw(g);
-		g.setColor(Color.BLACK);
-		g.drawString(typed,5,30);
+		world.draw(graphics);
+		graphics.setColor(Color.BLACK);
+		graphics.drawString(typed,5,30);
 	}
 
 	public void keyTyped(KeyEvent ke)

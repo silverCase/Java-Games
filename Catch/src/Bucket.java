@@ -44,14 +44,14 @@ public class Bucket
 		return new Rectangle(x-WIDTH/2, y-HEIGHT/2, WIDTH, HEIGHT);
 	}
 
-	public boolean contains(Ball b)
+	public boolean contains(Ball ball)
 	{
-		return getBounds().contains(b.getBounds());
+		return getBounds().contains(ball.getBounds());
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		g.setColor(Color.BLACK);
-		g.fillRect(x-WIDTH/2, y-HEIGHT/2, WIDTH, HEIGHT);
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect(x-WIDTH/2, y-HEIGHT/2, WIDTH, HEIGHT);
 	}
 }

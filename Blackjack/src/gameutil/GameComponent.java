@@ -150,16 +150,16 @@ public abstract class GameComponent extends JPanel
 	/**
 	 * The method that draws the component.
 	 *
-	 * @param	g 	the {@link Graphics} on which the component will be drawn
+	 * @param	graphics 	the {@link Graphics} on which the component will be drawn
 	 */
-	public abstract void draw(Graphics g);
+	public abstract void draw(Graphics graphics);
 
 	/**
 	 * Draws the sandard parts of the component. (Preformed befor {@link #draw(Graphics)})
 	 *
-	 * @param	g 	the {@link Graphics} on which the component will be drawn
+	 * @param	graphics 	the {@link Graphics} on which the component will be drawn
 	 */
-	public void standardDraw(Graphics g)
+	public void standardDraw(Graphics graphics)
 	{
 	}
 

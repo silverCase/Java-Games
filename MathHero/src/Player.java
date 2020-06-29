@@ -38,16 +38,16 @@ public class Player
 		level++;
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		g.setColor(Color.BLUE);
-		g.fillOval(Util.MAX_R-Util.PLAYER_RADIUS,Util.MAX_R-Util.PLAYER_RADIUS,Util.PLAYER_RADIUS*2,Util.PLAYER_RADIUS*2);
-		g.setColor(Color.RED);
-		g.fillRect(Util.MAX_R-Util.PLAYER_RADIUS,Util.MAX_R-Util.PLAYER_RADIUS-6,Util.PLAYER_RADIUS*2,5);
-		g.setColor(Color.GREEN);
-		g.fillRect(Util.MAX_R-Util.PLAYER_RADIUS,Util.MAX_R-Util.PLAYER_RADIUS-6,Util.PLAYER_RADIUS*2*health/maxHealth,5);
-		g.setColor(Color.BLUE);
-		g.fillRect(Util.MAX_R-Util.PLAYER_RADIUS,Util.MAX_R-Util.PLAYER_RADIUS-1,
+		graphics.setColor(Color.BLUE);
+		graphics.fillOval(Util.MAX_R-Util.PLAYER_RADIUS,Util.MAX_R-Util.PLAYER_RADIUS,Util.PLAYER_RADIUS*2,Util.PLAYER_RADIUS*2);
+		graphics.setColor(Color.RED);
+		graphics.fillRect(Util.MAX_R-Util.PLAYER_RADIUS,Util.MAX_R-Util.PLAYER_RADIUS-6,Util.PLAYER_RADIUS*2,5);
+		graphics.setColor(Color.GREEN);
+		graphics.fillRect(Util.MAX_R-Util.PLAYER_RADIUS,Util.MAX_R-Util.PLAYER_RADIUS-6,Util.PLAYER_RADIUS*2*health/maxHealth,5);
+		graphics.setColor(Color.BLUE);
+		graphics.fillRect(Util.MAX_R-Util.PLAYER_RADIUS,Util.MAX_R-Util.PLAYER_RADIUS-1,
 			Util.PLAYER_RADIUS*2*exp/expToNextLevel,1);
 	}
 }

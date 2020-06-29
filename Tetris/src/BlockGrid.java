@@ -24,9 +24,9 @@ public class BlockGrid
 		}
 	}
 
-	public void drawSquare(Point p)
+	public void drawSquare(Point point)
 	{
-		drawSquare(p.x, p.y);
+		drawSquare(point.x, point.y);
 	}
 
 	public void setColor(Color color)
@@ -59,19 +59,19 @@ public class BlockGrid
 		blocks = new Color[blocks.length][blocks[0].length];
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		for(int i = 0; i < blocks.length; i++)
 		{
 			for(int j = 0; j < blocks[0].length; j++)
 			{
 				if(blocks[i][j] != null)
-					g.setColor(blocks[i][j]);
+					graphics.setColor(blocks[i][j]);
 				else
-					g.setColor(BACKGROUND_COLOR);
-				g.fillRect(i*BLOCK_SIDE, j*BLOCK_SIDE, BLOCK_SIDE-1, BLOCK_SIDE-1);
-				g.setColor(Color.BLACK);
-				g.drawRect(i*BLOCK_SIDE, j*BLOCK_SIDE, BLOCK_SIDE-1, BLOCK_SIDE-1);
+					graphics.setColor(BACKGROUND_COLOR);
+				graphics.fillRect(i*BLOCK_SIDE, j*BLOCK_SIDE, BLOCK_SIDE-1, BLOCK_SIDE-1);
+				graphics.setColor(Color.BLACK);
+				graphics.drawRect(i*BLOCK_SIDE, j*BLOCK_SIDE, BLOCK_SIDE-1, BLOCK_SIDE-1);
 			}
 		}
 	}

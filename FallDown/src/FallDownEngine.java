@@ -120,19 +120,19 @@ public class FallDownEngine
 		}
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		if(ball.getLocation().getY() < -Ball.RADIUS)
 		{
 			logger.info("draw");
-			g.setColor(Color.BLUE);
-			g.drawString("You Lose", WIDTH/2-27, HEIGHT/2);
+			graphics.setColor(Color.BLUE);
+			graphics.drawString("You Lose", WIDTH/2-27, HEIGHT/2);
 		}
 		else
-			ball.draw(g);
+			ball.draw(graphics);
 		for(int i = 0; i < bricks.size(); i++)
-			bricks.get(i).draw(g);
-		g.setColor(Color.BLUE);
-		g.drawString("Points: "+points, 10, 20);
+			bricks.get(i).draw(graphics);
+		graphics.setColor(Color.BLUE);
+		graphics.drawString("Points: "+points, 10, 20);
 	}
 }

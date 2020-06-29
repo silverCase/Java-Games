@@ -33,13 +33,13 @@ public class Goal implements Serializable
 
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		if(reached)
-			g.setColor(Color.GREEN);
+			graphics.setColor(Color.GREEN);
 		else
-			g.setColor(Color.RED);
-		g.drawOval((int)(x-radius+.5), (int)(y-radius+.5), (int)(radius*2+.5), (int)(radius*2+.5));
+			graphics.setColor(Color.RED);
+		graphics.drawOval((int)(x-radius+.5), (int)(y-radius+.5), (int)(radius*2+.5), (int)(radius*2+.5));
 		logger.info("drawn");
 
 	}

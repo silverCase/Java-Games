@@ -60,15 +60,15 @@ public class CrapsGame
 		return Dice.HEIGHT+30;
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		die1.draw(g, 0,0);
 		die2.draw(g, Dice.WIDTH, 0);
-		g.setColor(Color.RED);
-		g.drawString(""+state, Dice.WIDTH*2+10, Dice.HEIGHT/2+5);
+		graphics.setColor(Color.RED);
+		graphics.drawString(""+state, Dice.WIDTH*2+10, Dice.HEIGHT/2+5);
 		if(state == CrapsState.ROLLING)
-			g.drawString("Point: " + point, 10, Dice.HEIGHT+12);
+			graphics.drawString("Point: " + point, 10, Dice.HEIGHT+12);
 		if(state != CrapsState.START)
-			g.drawString("Roll: "+getNumber(), 10, Dice.HEIGHT+24);
+			graphics.drawString("Roll: "+getNumber(), 10, Dice.HEIGHT+24);
 	}
 }

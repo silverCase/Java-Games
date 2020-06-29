@@ -122,39 +122,39 @@ public class Blackjack extends ListeningGameComponent
 		resetKeys();
 	}
 
-	public void draw(Graphics g1)
+	public void draw(Graphics graphics1)
 	{
-		Graphics2D g = (Graphics2D)g1;
+		Graphics2D graphics = (Graphics2D)graphics1;
 
-		g.setColor(Color.BLACK);
-		g.drawString("Money: " + money + "     Bet: " + bet, 10, 20);
+		graphics.setColor(Color.BLACK);
+		graphics.drawString("Money: " + money + "     Bet: " + bet, 10, 20);
 
 		if(state == State.BET)
 		{
-			g.drawString("SET YOUR BET", WIDTH-150, 20);
+			graphics.drawString("SET YOUR BET", WIDTH-150, 20);
 		}
 		if(state == State.PLAY)
 		{
-			dealer.draw(g1, 157, 12);
-			player.draw(g1, 25, 158);
+			dealer.draw(graphics1, 157, 12);
+			player.draw(graphics1, 25, 158);
 		}
 		if(state == State.WIN)
 		{
-			dealer.draw(g1, 157, 12);
-			player.draw(g1, 25, 158);
-			g.drawString("YOU WIN!", WIDTH-150, 20);
+			dealer.draw(graphics1, 157, 12);
+			player.draw(graphics1, 25, 158);
+			graphics.drawString("YOU WIN!", WIDTH-150, 20);
 		}
 		if(state == State.LOSE)
 		{
-			dealer.draw(g1, 157, 12);
-			player.draw(g1, 25, 158);
-			g.drawString("YOU LOSE!", WIDTH-150, 20);
+			dealer.draw(graphics1, 157, 12);
+			player.draw(graphics1, 25, 158);
+			graphics.drawString("YOU LOSE!", WIDTH-150, 20);
 		}
 		if(state == State.PUSH)
 		{
-			dealer.draw(g1, 157, 12);
-			player.draw(g1, 25, 158);
-			g.drawString("PUSH", WIDTH-150, 20);
+			dealer.draw(graphics1, 157, 12);
+			player.draw(graphics1, 25, 158);
+			graphics.drawString("PUSH", WIDTH-150, 20);
 		}
 	}
 

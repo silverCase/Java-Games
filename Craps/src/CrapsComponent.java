@@ -38,11 +38,11 @@ public class CrapsComponent extends JComponent implements KeyListener, Runnable
 		}
 	}
 
-	public void paint(Graphics g)
+	public void paint(Graphics graphics)
 	{
-		synchronized(g)
+		synchronized(graphics)
 		{
-			engine.draw(g);
+			engine.draw(graphics);
 		}
 	}
 

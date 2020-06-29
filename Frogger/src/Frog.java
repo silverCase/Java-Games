@@ -62,17 +62,17 @@ public class Frog
 		return new Rectangle(x-RADIUS, y-RADIUS, RADIUS*2, RADIUS*2);
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		g.setColor(COLOR);
-		g.fillOval(x-RADIUS, y-RADIUS, RADIUS*2, RADIUS*2);
+		graphics.setColor(COLOR);
+		graphics.fillOval(x-RADIUS, y-RADIUS, RADIUS*2, RADIUS*2);
 	}
 
-	public void drawLevel(Graphics g,int levelNumber)
+	public void drawLevel(Graphics graphics,int levelNumber)
 	{
 		logger.severe("LVL DRAWN");
 		String level="LEVEL "+levelNumber;
-		g.setColor(COLOR);
-		g.drawString(level,300,400);
+		graphics.setColor(COLOR);
+		graphics.drawString(level,300,400);
 	}
 }

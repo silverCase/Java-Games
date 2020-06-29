@@ -39,9 +39,9 @@ public abstract class ListeningGameComponent extends GameComponent implements Mo
 	/**
 	 * The method that draws the component.
 	 *
-	 * @param	g 	the {@link Graphics} on which the component will be drawn
+	 * @param	graphics 	the {@link Graphics} on which the component will be drawn
 	 */
-	public abstract void draw(Graphics g);
+	public abstract void draw(Graphics graphics);
 
 
 	/**
@@ -51,81 +51,81 @@ public abstract class ListeningGameComponent extends GameComponent implements Mo
 
 	/**
 	 * Does nothing. Activated when the mouse is pressed and released.
-	 * @param	e	a mouse event
+	 * @param	mouseEvent	a mouse event
 	 */
-	public void mouseClicked(MouseEvent e){}
+	public void mouseClicked(MouseEvent mouseEvent){}
 
 	/**
 	 * Does nothing. Activated when the mouse enters the component.
-	 * @param	e	a mouse event
+	 * @param	mouseEvent	a mouse event
 	 */
-	public void mouseEntered(MouseEvent e){}
+	public void mouseEntered(MouseEvent mouseEvent){}
 
 	/**
 	 * Does nothing. Activated when the mouse exits the component.
-	 * @param	e	a mouse event
+	 * @param	mouseEvent	a mouse event
 	 */
-	public void mouseExited(MouseEvent e){}
+	public void mouseExited(MouseEvent mouseEvent){}
 
 	/**
 	 * Updates the mouse variables.
-	 * @param	e	a mouse event
+	 * @param	mouseEvent	a mouse event
 	 */
-	public void mousePressed(MouseEvent e)
+	public void mousePressed(MouseEvent mouseEvent)
 	{
-		if(e.getButton() == e.BUTTON1)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON1)
 			mousePressed1 = true;
-		if(e.getButton() == e.BUTTON2)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON2)
 			mousePressed2 = true;
-		if(e.getButton() == e.BUTTON3)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON3)
 			mousePressed3 = true;
 	}
 
 
 	/**
 	 * Updates the mouse variables.
-	 * @param	e	a mouse event
+	 * @param	mouseEvent	a mouse event
 	 */
-	public void mouseReleased(MouseEvent e)
+	public void mouseReleased(MouseEvent mouseEvent)
 	{
-		if(e.getButton() == e.BUTTON1)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON1)
 			mousePressed1 = false;
-		if(e.getButton() == e.BUTTON2)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON2)
 			mousePressed2 = false;
-		if(e.getButton() == e.BUTTON3)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON3)
 			mousePressed3 = false;
 	}
 
 
 	/**
 	 * Updates the mouse variables.
-	 * @param	e	a mouse event
+	 * @param	mouseEvent	a mouse event
 	 */
-	public void mouseDragged(MouseEvent e)
+	public void mouseDragged(MouseEvent mouseEvent)
 	{
-		if(e.getButton() == e.BUTTON1)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON1)
 			mousePressed1 = !mousePressed1;
-		if(e.getButton() == e.BUTTON2)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON2)
 			mousePressed2 = !mousePressed2;
-		if(e.getButton() == e.BUTTON3)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON3)
 			mousePressed3 = !mousePressed3;
-		mouseX = e.getX();
-		mouseY = e.getY();
+		mouseX = mouseEvent.getX();
+		mouseY = mouseEvent.getY();
 	}
 
 
 	/**
 	 * Updates the mouse variables.
-	 * @param	e	a mouse event
+	 * @param	mouseEvent	a mouse event
 	 */
-	public void mouseMoved(MouseEvent e)
+	public void mouseMoved(MouseEvent mouseEvent)
 	{
 		mousePressed1 = false;
 		mousePressed2 = false;
 		mousePressed3 = false;
 
-		mouseX = e.getX();
-		mouseY = e.getY();
+		mouseX = mouseEvent.getX();
+		mouseY = mouseEvent.getY();
 	}
 
 

@@ -54,9 +54,9 @@ public class Ball
 		return good;
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		g.setColor(good?GOOD_COLOR:BAD_COLOR);
-		g.fillOval(x-RADIUS, y-RADIUS, RADIUS*2, RADIUS*2);
+		graphics.setColor(good?GOOD_COLOR:BAD_COLOR);
+		graphics.fillOval(x-RADIUS, y-RADIUS, RADIUS*2, RADIUS*2);
 	}
 }

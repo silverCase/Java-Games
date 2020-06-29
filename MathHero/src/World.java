@@ -53,24 +53,24 @@ public class World
 		}
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		getLevel().drawEnemies(g);
-		player.draw(g);
-		g.setColor(Color.BLACK);
-		g.drawString("Level: "+(level+1),5,15);
-		g.drawString("Key: "+getLevel().key,Util.MAX_R*2-90,15);
+		getLevel().drawEnemies(graphics);
+		player.draw(graphics);
+		graphics.setColor(Color.BLACK);
+		graphics.drawString("Level: "+(level+1),5,15);
+		graphics.drawString("Key: "+getLevel().key,Util.MAX_R*2-90,15);
 		if(win)
 		{
-			g.setColor(Color.GREEN);
-			g.setFont(new Font("Verdana",Font.BOLD,14));
-			g.drawString("You WIN!",140,150);
+			graphics.setColor(Color.GREEN);
+			graphics.setFont(new Font("Verdana",Font.BOLD,14));
+			graphics.drawString("You WIN!",140,150);
 		}
 		if(lose)
 		{
-			g.setColor(Color.RED);
-			g.setFont(new Font("Verdana",Font.BOLD,14));
-			g.drawString("You lose.",140,150);
+			graphics.setColor(Color.RED);
+			graphics.setFont(new Font("Verdana",Font.BOLD,14));
+			graphics.drawString("You lose.",140,150);
 		}
 	}
 

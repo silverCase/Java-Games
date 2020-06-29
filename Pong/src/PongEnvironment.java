@@ -17,10 +17,10 @@ public class PongEnvironment
 		right = new Paddle(WIDTH-10, HEIGHT/2);
 	}
 
-	public void setComputer(boolean l, boolean r)
+	public void setComputer(boolean left, boolean right)
 	{
-		leftComputer = l;
-		rightComputer = r;
+		leftComputer = left;
+		rightComputer = right;
 	}
 
 	public Paddle getLeft()
@@ -90,13 +90,13 @@ public class PongEnvironment
 
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		ball.draw(g);
-		left.draw(g);
-		right.draw(g);
+		ball.draw(graphics);
+		left.draw(graphics);
+		right.draw(graphics);
 
-		g.drawString("Score: "+ leftScore, 25, 12);
-		g.drawString("Score: "+ rightScore, WIDTH-125, 12);
+		graphics.drawString("Score: "+ leftScore, 25, 12);
+		graphics.drawString("Score: "+ rightScore, WIDTH-125, 12);
 	}
 }

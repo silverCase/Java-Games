@@ -36,13 +36,13 @@ public class SerializableImage implements IOable, Serializable
 	public BufferedImage getImage()
 	{
 		BufferedImage image = new BufferedImage(colors.length, colors[0].length, BufferedImage.TYPE_INT_RGB);
-		Graphics g = image.getGraphics();
+		Graphics graphics = image.getGraphics();
 		for(int x = 0; x < colors.length; x++)
 		{
 			for(int y = 0; y < colors[0].length; y++)
 			{
-				g.setColor(new Color(colors[x][y]));
-				g.drawLine(x,y,x,y);
+				graphics.setColor(new Color(colors[x][y]));
+				graphics.drawLine(x,y,x,y);
 			}
 		}
 		return image;

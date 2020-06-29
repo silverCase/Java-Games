@@ -93,9 +93,9 @@ public abstract class GameComponent extends JComponent
 	{
 	}
 
-	public abstract void draw(Graphics g);
+	public abstract void draw(Graphics graphics);
 
-	public void standardDraw(Graphics g)
+	public void standardDraw(Graphics graphics)
 	{
 	}
 

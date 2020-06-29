@@ -39,11 +39,11 @@ public class TetrisComponent extends JComponent implements KeyListener, Runnable
 		}
 	}
 
-	public void paint(Graphics g)
+	public void paint(Graphics graphics)
 	{
-		synchronized(g)
+		synchronized(graphics)
 		{
-			grid.draw(g);
+			grid.draw(graphics);
 		}
 	}
 

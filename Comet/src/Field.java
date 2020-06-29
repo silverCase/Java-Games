@@ -18,24 +18,24 @@ public class Field
 		logger.severe("NEW FIELD");
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-		g.setColor(Color.GREEN);
-		g.fillRect(70,65,500,350);
-		g.setColor(Color.WHITE);
-		g.drawLine(320,65,320,415);
-		g.drawOval(270,190,100,100);
-		g.setColor(Color.RED);
-		g.fillRect(65,190,5,100);
-		g.fillRect(570,190,5,100);
-		g.setColor(Color.BLACK);
-		g.drawRect(70,65,500,350);
+		graphics.setColor(Color.GREEN);
+		graphics.fillRect(70,65,500,350);
+		graphics.setColor(Color.WHITE);
+		graphics.drawLine(320,65,320,415);
+		graphics.drawOval(270,190,100,100);
+		graphics.setColor(Color.RED);
+		graphics.fillRect(65,190,5,100);
+		graphics.fillRect(570,190,5,100);
+		graphics.setColor(Color.BLACK);
+		graphics.drawRect(70,65,500,350);
 
 		if((player1 != null) && (player2 != null) && (ball != null))
 		{
-			player1.draw(g);
-			player2.draw(g);
-			ball.draw(g);
+			player1.draw(graphics);
+			player2.draw(graphics);
+			ball.draw(graphics);
 		}
 	}
 

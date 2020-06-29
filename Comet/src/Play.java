@@ -169,20 +169,20 @@ public class Play extends ListeningGameComponent
 		return true;
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		if(planets != null)
 		{
 			if(comet != null)
-				comet.draw(g);
+				comet.draw(graphics);
 			for(int i = 0;i < planets.size(); i++)
-				planets.get(i).draw(g);
+				planets.get(i).draw(graphics);
 			for(int i = 0; i < goals.size(); i++)
-				goals.get(i).draw(g);
+				goals.get(i).draw(graphics);
 			if(win() && goals.size()>0)
 			{
-				g.setColor(Color.GREEN);
-				((Graphics2D)g).drawString("YOU WIN!!!", 310, 240);
+				graphics.setColor(Color.GREEN);
+				((Graphics2D)graphics).drawString("YOU WIN!!!", 310, 240);
 			}
 		}
 	}

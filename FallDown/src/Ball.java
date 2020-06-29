@@ -78,10 +78,10 @@ public class Ball
 		return new Point(x,y);
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		logger.info("graphix done");
-		g.setColor(Color.BLACK);
-		g.fillOval(x-RADIUS, y-RADIUS, RADIUS*2, RADIUS*2);
+		graphics.setColor(Color.BLACK);
+		graphics.fillOval(x-RADIUS, y-RADIUS, RADIUS*2, RADIUS*2);
 	}
 }

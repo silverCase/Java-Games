@@ -62,11 +62,11 @@ public class Level
 		}
 	}
 
-	public void drawEnemies(Graphics g)
+	public void drawEnemies(Graphics graphics)
 	{
 		for(int i = 0; i < actives.size(); i++)
 		{
-			actives.get(i).draw(g);
+			actives.get(i).draw(graphics);
 		}
 	}
 }

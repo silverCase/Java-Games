@@ -54,13 +54,13 @@ public class BlackjackHand
 		return getValue() > 21;
 	}
 
-	public void draw(Graphics g, int x, int y)
+	public void draw(Graphics graphics, int x, int y)
 	{
 		if(player)
 		{
 			for(int i = cards.size()-1; i >= 0; i--)
 			{
-				g.drawImage(cards.get(i).image, x+(cards.size()-i-1)*50, y, null);
+				graphics.drawImage(cards.get(i).image, x+(cards.size()-i-1)*50, y, null);
 			}
 		}
 		else
@@ -68,9 +68,9 @@ public class BlackjackHand
 			for(int i = cards.size()-1; i >= 0; i--)
 			{
 				if(i == 0)
-					g.drawImage(cards.get(i).image, x+(cards.size()-i-1)*50, y, null);
+					graphics.drawImage(cards.get(i).image, x+(cards.size()-i-1)*50, y, null);
 				else
-					g.drawImage(deck.back, x+(cards.size()-i-1)*50, y, null);
+					graphics.drawImage(deck.back, x+(cards.size()-i-1)*50, y, null);
 			}
 		}
 	}

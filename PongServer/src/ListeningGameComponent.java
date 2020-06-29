@@ -18,67 +18,67 @@ public abstract class ListeningGameComponent extends GameComponent implements Mo
 		addKeyListener(this);
 	}
 
-	public abstract void draw(Graphics g);
+	public abstract void draw(Graphics graphics);
 
 	public abstract void update();
 
-	public void mouseClicked(MouseEvent e){}
-	public void mouseEntered(MouseEvent e){}
-	public void mouseExited(MouseEvent e){}
+	public void mouseClicked(MouseEvent mouseEvent){}
+	public void mouseEntered(MouseEvent mouseEvent){}
+	public void mouseExited(MouseEvent mouseEvent){}
 
-	public void mousePressed(MouseEvent e)
+	public void mousePressed(MouseEvent mouseEvent)
 	{
-		if(e.getButton() == e.BUTTON1)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON1)
 			mousePressed1 = true;
-		if(e.getButton() == e.BUTTON2)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON2)
 			mousePressed2 = true;
-		if(e.getButton() == e.BUTTON3)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON3)
 			mousePressed3 = true;
 	}
 
-	public void mouseReleased(MouseEvent e)
+	public void mouseReleased(MouseEvent mouseEvent)
 	{
-		if(e.getButton() == e.BUTTON1)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON1)
 			mousePressed1 = false;
-		if(e.getButton() == e.BUTTON2)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON2)
 			mousePressed2 = false;
-		if(e.getButton() == e.BUTTON3)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON3)
 			mousePressed3 = false;
 	}
 
-	public void mouseDragged(MouseEvent e)
+	public void mouseDragged(MouseEvent mouseEvent)
 	{
-		if(e.getButton() == e.BUTTON1)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON1)
 			mousePressed1 = !mousePressed1;
-		if(e.getButton() == e.BUTTON2)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON2)
 			mousePressed2 = !mousePressed2;
-		if(e.getButton() == e.BUTTON3)
+		if(mouseEvent.getButton() == mouseEvent.BUTTON3)
 			mousePressed3 = !mousePressed3;
-		mouseX = e.getX();
-		mouseY = e.getY();
+		mouseX = mouseEvent.getX();
+		mouseY = mouseEvent.getY();
 	}
 
-	public void mouseMoved(MouseEvent e)
+	public void mouseMoved(MouseEvent mouseEvent)
 	{
 		mousePressed1 = false;
 		mousePressed2 = false;
 		mousePressed3 = false;
 
-		mouseX = e.getX();
-		mouseY = e.getY();
+		mouseX = mouseEvent.getX();
+		mouseY = mouseEvent.getY();
 	}
 
-	public void keyPressed(KeyEvent e)
+	public void keyPressed(KeyEvent keyEvent)
 	{
-		//System.out.println(e.getKeyText(e.getKeyCode()));
-		keysPressed.add(e.getKeyText(e.getKeyCode()));
+		//System.out.println(keyEvent.getKeyText(keyEvent.getKeyCode()));
+		keysPressed.add(keyEvent.getKeyText(keyEvent.getKeyCode()));
 	}
 
-	public void keyReleased(KeyEvent e)
+	public void keyReleased(KeyEvent keyEvent)
 	{
 		for(int i = 0; i < keysPressed.size(); i++)
 		{
-			if(keysPressed.get(i).equals(e.getKeyText(e.getKeyCode())))
+			if(keysPressed.get(i).equals(keyEvent.getKeyText(keyEvent.getKeyCode())))
 			{
 				keysPressed.remove(i);
 				i--;
@@ -86,7 +86,7 @@ public abstract class ListeningGameComponent extends GameComponent implements Mo
 		}
 	}
 
-	public void keyTyped(KeyEvent e){}
+	public void keyTyped(KeyEvent keyEvent){}
 
 
 	public boolean isMousePressed(int b)

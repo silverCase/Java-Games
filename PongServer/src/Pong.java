@@ -160,19 +160,19 @@ public class Pong extends ListeningGameComponent
 		}
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		if(start)
 		{
-			if(g!=null)
+			if(graphics!=null)
 			{
 				if(ball!=null && p1!=null && p2!=null)
 				{
-					ball.draw(g);
-					p1.draw(g);
-					p2.draw(g);
-					g.setColor(Color.BLUE);
-					((Graphics2D)g).drawString("P1: " + p1points + "   P2: " + p2points,100,20);
+					ball.draw(graphics);
+					p1.draw(graphics);
+					p2.draw(graphics);
+					graphics.setColor(Color.BLUE);
+					((Graphics2D)graphics).drawString("P1: " + p1points + "   P2: " + p2points,100,20);
 				}
 			}
 		}

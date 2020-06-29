@@ -80,19 +80,19 @@ public class Comet extends Planet
 		logger.info("update");
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		if(color == null)
-			g.setColor(Color.BLUE);
+			graphics.setColor(Color.BLUE);
 		else
-			g.setColor(color);
-		g.fillOval((int)(x-radius+.5), (int)(y-radius+.5), (int)(radius*2+.5), (int)(radius*2+.5));
+			graphics.setColor(color);
+		graphics.fillOval((int)(x-radius+.5), (int)(y-radius+.5), (int)(radius*2+.5), (int)(radius*2+.5));
 		if(((x > 640) || (y > 480) || (x < 0) || (y < 0)) && !random)
 		{
 			double dist = Math.sqrt((x-320)*(x-320)+(y-240)*(y-240));
 			double xComp = x-320;
 			double yComp = y-240;
-			g.drawLine((int)(240*(xComp/dist))+320, (int)(240*(yComp/dist))+240, (int)(200*(xComp/dist))+320, (int)(200*(yComp/dist))+240);
+			graphics.drawLine((int)(240*(xComp/dist))+320, (int)(240*(yComp/dist))+240, (int)(200*(xComp/dist))+320, (int)(200*(yComp/dist))+240);
 		}
 		logger.info("draw");
 

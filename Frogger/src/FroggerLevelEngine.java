@@ -87,21 +87,21 @@ public class FroggerLevelEngine
 
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
-                frog.drawLevel(g,1);
-		frog.draw(g);
+                frog.drawLevel(graphics,1);
+		frog.draw(graphics);
 		for(int i = 0; i < traffic.length; i++)
 		{
-			traffic[i].draw(g);
+			traffic[i].draw(graphics);
 		}
 		logger.info("draw");
 
 
 //		if(state == FroggerState.HIT)
 //		{
-//			g.setColor(Color.BLACK);
-//			g.drawString("YOU GOT HIT", WIDTH/2-50, HEIGHT/2);
+//			graphics.setColor(Color.BLACK);
+//			graphics.drawString("YOU GOT HIT", WIDTH/2-50, HEIGHT/2);
 //		}
 	}
 }

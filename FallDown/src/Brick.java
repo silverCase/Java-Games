@@ -30,9 +30,9 @@ public class Brick
 		return b.getBounds().intersects(getBounds());
 	}
 
-	public Ball affect(Ball b)
+	public Ball affect(Ball ball)
 	{
-		Ball ret = b;
+		Ball ret = ball;
 		while(intersects(ret))
 			ret = ret.move(0, -1);
 			logger.fine("intersection");
@@ -44,10 +44,10 @@ public class Brick
 		return new Point(x,y);
 	}
 
-	public void draw(Graphics g)
+	public void draw(Graphics graphics)
 	{
 		logger.info("graphix done");
-		g.setColor(Color.RED);
-		g.fillRect(x-WIDTH/2, y-HEIGHT/2, WIDTH-1, HEIGHT-1);
+		graphics.setColor(Color.RED);
+		graphics.fillRect(x-WIDTH/2, y-HEIGHT/2, WIDTH-1, HEIGHT-1);
 	}
 }
