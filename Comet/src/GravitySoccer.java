@@ -45,7 +45,15 @@ public class GravitySoccer extends ListeningGameComponent
 			if(isKeyPressed("H"))
 			{
 				resetKeys();
-				JOptionPane.showMessageDialog(this, "-1st Player-\nW/A/S/D - Move\nSpace - Turn on gravitational pull\n\n-2nd Player-\nArrows - Move\nNumpad-0 - Turn on gravitational pull\n\nH: Help Menu");
+				StringBuilder sb = new StringBuilder();
+				sb.append("-1st Player-\n");
+				sb.append("W/A/S/D - Move\n");
+				sb.append("Space - Turn on gravitational pull\n\n");
+				sb.append("-2nd Player-\n");
+				sb.append("Arrows - Move\n");
+				sb.append("Numpad-0 - Turn on gravitational pull\n\n");
+				sb.append("H: Help Menu");
+				JOptionPane.showMessageDialog(this, sb.toString());
 			}
 
 			field.update(isKeyPressed("SPACE"), isKeyPressed("Numpad-0"));

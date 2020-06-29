@@ -150,19 +150,19 @@ public class TetrisBlock
 
 	public String toString()
 	{
-		String ret = "";
+		StringBuilder ret = new StringBuilder("");
 		for(int j = 0; j < blocks[0].length; j++)
 		{
-			ret+=(j!=0)?"\n":"";
+			ret.append((j!=0)?"\n":"");
 			for(int i = 0; i < blocks.length; i++)
 			{
 				if(blocks[i][j])
-					ret+="#";
+					ret.append("#");
 				else
-					ret+=" ";
+					ret.append(" ");
 			}
 		}
-		return ret;
+		return ret.toString();
 	}
 
 	public static TetrisBlock getSingleBlock(int x, int y, Color color)

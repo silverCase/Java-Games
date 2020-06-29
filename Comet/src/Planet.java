@@ -21,12 +21,12 @@ public class Planet implements Serializable
 	public boolean contains(Planet other)
 	{
 		logger.info("contains");
-		return Math.sqrt((other.x-x)*(other.x-x) + (other.y-y)*(other.y-y))<=Math.max(radius, other.radius);
+		return Math.sqrt(Math.pow((other.x-x), 2) + Math.pow((other.y-y),2))<=Math.max(radius, other.radius);
 	}
 
 	public double getMass()
 	{
-		return (4.0/3.0)*radius*radius*radius*Math.PI;
+		return (4.0/3.0)*Math.pow(radius, 3)*Math.PI;
 	}
 
 	public void draw(Graphics graphics)

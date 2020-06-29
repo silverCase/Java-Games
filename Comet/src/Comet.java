@@ -35,7 +35,7 @@ public class Comet extends Planet
 
 	public double getMass()
 	{
-		return (4.0/3.0)*radius*radius*radius*Math.PI;
+		return (4.0/3.0)*Math.pow(radius, 3)*Math.PI;
 	}
 
 	public double getDistance(Planet p)

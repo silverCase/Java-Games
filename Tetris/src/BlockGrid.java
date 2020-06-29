@@ -78,20 +78,20 @@ public class BlockGrid
 
 	public String toString()
 	{
-		String ret = "";
+		StringBuilder ret = new StringBuilder("");
 		for(int j = 0; j < blocks[0].length; j++)
 		{
 			if(j != 0)
-				ret+="\n";
+				ret.append("\n");
 			for(int i = 0; i < blocks.length; i++)
 			{
 				if(blocks[i][j] != null)
-					ret+="#";
+					ret.append("#");
 				else
-					ret+="-";
+					ret.append("-");
 			}
 		}
-		return ret;
+		return ret.toString();
 	}
 
 	public static void main(String[] args)
