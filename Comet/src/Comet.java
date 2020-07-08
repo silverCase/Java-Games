@@ -1,4 +1,6 @@
-import java.util.logging.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.awt.*;
 
 public class Comet extends Planet
@@ -14,7 +16,7 @@ public class Comet extends Planet
 	{
 		super(radius, x, y);
 	}
-	public static final Logger logger = Logger.getLogger(Comet.class.getName());
+	public static final Logger logger = LogManager.getLogger(Comet.class);
 
 	public Comet()
 	{
@@ -24,7 +26,7 @@ public class Comet extends Planet
 		x = mag*Math.cos(t);
 		y = mag*Math.sin(t);
 		random = true;
-		logger.severe("NEW COMET");
+		logger.fatal("NEW COMET");
 	}
 
 	public void decelerate()
@@ -50,7 +52,7 @@ public class Comet extends Planet
 			double acceleration = G*p.getMass()/(Math.pow(p.x-x,2) + Math.pow(p.y-y,2));
 			xV += acceleration*(p.x-x)/(getDistance(p));
 			yV += acceleration*(p.y-y)/(getDistance(p));
-			logger.info("move planet");
+			logger.debug("move planet");
 		}
 	}
 
@@ -58,7 +60,7 @@ public class Comet extends Planet
 	{
 		xV+= SPEED*d.x;
 		yV+= SPEED*d.y;
-		logger.info("move direction");
+		logger.debug("move direction");
 	}
 
 
@@ -77,7 +79,7 @@ public class Comet extends Planet
 			x = (950*xComp/dist)+320;
 			y = (950*yComp/dist)+240;
 		}
-		logger.info("update");
+		logger.debug("update");
 	}
 
 	public void draw(Graphics g)
@@ -94,7 +96,7 @@ public class Comet extends Planet
 			double yComp = y-240;
 			g.drawLine((int)(240*(xComp/dist))+320, (int)(240*(yComp/dist))+240, (int)(200*(xComp/dist))+320, (int)(200*(yComp/dist))+240);
 		}
-		logger.info("draw");
+		logger.debug("draw");
 
 	}
 

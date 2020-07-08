@@ -15,7 +15,7 @@ public class Planet implements Serializable
 		this.x = x;
 		this.y = y;
 		this.radius = radius;
-		logger.severe("NEW PLANET");
+		logger.fatal("NEW PLANET");
 	}
 
 	public boolean contains(Planet other)
@@ -31,7 +31,7 @@ public class Planet implements Serializable
 
 	public void draw(Graphics g)
 	{
-		logger.severe("draw planet");
+		logger.fatal("draw planet");
 		g.setColor(Color.BLACK);
 		g.fillOval((int)(x-radius+.5), (int)(y-radius+.5), (int)(radius*2+.5), (int)(radius*2+.5));
 	}
